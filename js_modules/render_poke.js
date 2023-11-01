@@ -8,9 +8,13 @@ const POKE_TYPES_WRAPER = (types) => {
     return avaibleTypes
 }
 
+const FOOT_TO_METERS = (height)=>{
+    const valorPies = 0.3048
+const finalHeight = Math.ceil(height*valorPies)
+return finalHeight
+}
 
-
-const RENDER_POKEMON = ({ name, weight, sprites, types }) => {
+const RENDER_POKEMON = ({ name, weight, sprites, types, height }) => {
 
     return container.innerHTML = `
   <div class="card">
@@ -20,7 +24,7 @@ const RENDER_POKEMON = ({ name, weight, sprites, types }) => {
   <p>Tipos:</p>
   ${POKE_TYPES_WRAPER(types).join(', ')}
    </div>
-  
+   <p>Altura = ${FOOT_TO_METERS(height)} mts</p>
   <p>Peso = ${weight} kg</p>
   </div>`
 
